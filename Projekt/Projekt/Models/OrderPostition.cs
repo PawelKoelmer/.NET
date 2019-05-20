@@ -1,6 +1,6 @@
 ﻿namespace Projekt.Models
 {
-    internal class OrderPostition
+    public class OrderPostition
     {
        public int OrderPostitionId {get;set;}
         public int OrderId { get; set; }
