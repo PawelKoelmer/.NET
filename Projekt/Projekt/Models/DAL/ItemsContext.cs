@@ -12,10 +12,19 @@ namespace Projekt.Models.DAL
         {
 
         }
+        static ItemsContext()
+        {
+            Database.SetInitializer<ItemsContext>(new ShopInitializer());
+        }
         public DbSet<Item> Items { get; set; }
         public DbSet<Order>  Orders { get; set; }
         public DbSet<OrderPostition> OrderPositions { get; set; }
+        public DbSet<Role> Roles { get; set; }
 
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+        }
 
     }
 }

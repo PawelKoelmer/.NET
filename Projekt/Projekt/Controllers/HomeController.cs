@@ -1,4 +1,5 @@
-﻿using Projekt.Models.DAL;
+﻿using Projekt.Models;
+using Projekt.Models.DAL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +15,6 @@ namespace Projekt.Controllers
         // GET: Home
         public ActionResult Index()
         {
-            
             return View();
         }
     }

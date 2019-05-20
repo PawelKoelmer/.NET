@@ -16,5 +16,7 @@ namespace Projekt.Models
        public decimal productScore { get; set; }
        public bool avaiablity { get; set; }
 
+
+
     }
 }
