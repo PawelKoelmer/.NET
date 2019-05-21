@@ -118,7 +118,7 @@
     </Compile>
     <Compile Include="Models\DAL\ShopInitializer.cs" />
     <Compile Include="Models\Role.cs" />
-    <Compile Include="Models\DAL\ItemsContext.cs" />
+    <Compile Include="Models\DAL\ShopContext.cs" />
     <Compile Include="Models\Item.cs" />
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\OrderPostition.cs" />

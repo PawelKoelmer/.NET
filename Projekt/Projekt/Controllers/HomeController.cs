@@ -10,11 +10,13 @@ namespace Projekt.Controllers
 {
     public class HomeController : Controller
     {
-        private ItemsContext db = new ItemsContext();
+        private ShopContext db = new ShopContext();
 
         // GET: Home
         public ActionResult Index()
         {
+            var ctx = new ShopContext();
+            ctx.Database.Initialize(true);
             return View();
         }
     }

@@ -6,16 +6,18 @@ using System.Web;
 
 namespace Projekt.Models.DAL
 {
-    public class ItemsContext : DbContext
+    public class ShopContext : DbContext
     {
-        public ItemsContext() : base("Baza")
+        public ShopContext() : base("Shop")
         {
 
         }
-        static ItemsContext()
+ 
+        static ShopContext()
         {
-            Database.SetInitializer<ItemsContext>(new ShopInitializer());
+            Database.SetInitializer<ShopContext>(new ShopInitializer());
         }
+
         public DbSet<Item> Items { get; set; }
         public DbSet<Order>  Orders { get; set; }
         public DbSet<OrderPostition> OrderPositions { get; set; }
