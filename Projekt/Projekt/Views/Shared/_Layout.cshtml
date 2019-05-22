@@ -21,10 +21,28 @@
     <link rel="stylesheet" href=@ViewData["Stylesheet"] />
 </head>
 <body>
+    <div class="menu-bar">
+        Nagłówek
+        <nav>
+            <span><a href=""</span>
+        </nav>
+    </div>
+    <div class="main-site">
+        @RenderBody()
 
-    @RenderBody()
 
+        @RenderSection("Scripts", required: false)
+    </div>
 
-    @RenderSection("Scripts", required: false)
+    <footer >
+        <nav class="footer">
+                <a href="@Url.Action("StronyStatyczne","Home", new { nazwa = "Onas" })" style="">O nas</a>
+                <a href="@Url.Action("StronyStatyczne","Home", new { nazwa = "Spolecznosc" })" style="">Spolecznosc</a>
+                <a href="@Url.Action("StronyStatyczne","Home", new { nazwa = "Opinie" })" style="">Opinie</a>
+                <a href="@Url.Action("StronyStatyczne","Home", new { nazwa = "Pomoc" })" style="">Pomoc</a>
+                <a href="@Url.Action("StronyStatyczne","Home", new { nazwa = "Regulamin" })" style="">Regulamin</a>
+                <a href="@Url.Action("StronyStatyczne","Home", new { nazwa = "Kontakt" })" style="">Kontakt</a>
+        </nav>
+    </footer>
 </body>
 </html>

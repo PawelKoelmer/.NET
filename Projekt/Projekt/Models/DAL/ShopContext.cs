@@ -18,6 +18,10 @@ namespace Projekt.Models.DAL
             Database.SetInitializer<ShopContext>(new ShopInitializer());
         }
 
+        public static ShopContext Create()
+        {
+            return new ShopContext();
+        }
         public DbSet<Item> Items { get; set; }
         public DbSet<Order>  Orders { get; set; }
         public DbSet<OrderPostition> OrderPositions { get; set; }

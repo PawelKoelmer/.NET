@@ -1,2 +1,14 @@
-﻿body {
-  background-color: black; }
+﻿.menu-bar {
+  background-color: gray;
+  color: white;
+  padding: 15px; }
+
+.main-site {
+  background-color: darkgrey; }
+
+.footer {
+  display: flex;
+  justify-content: center; }
+
+.footer > a {
+  padding-right: 20px; }
