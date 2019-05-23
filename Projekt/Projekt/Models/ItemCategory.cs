@@ -10,5 +10,7 @@ namespace Projekt.Models
         public int ItemCategoryId { get; set; }
         public string ItemCategoryName { get; set; }
         public string ItemCategoryDescription { get; set; }
+
+        public virtual ICollection<Item> Items { get; set; }
     }
 }

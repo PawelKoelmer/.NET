@@ -55,6 +55,12 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Glimpse.AspNet, Version=1.8.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Glimpse.AspNet.1.8.0\lib\net45\Glimpse.AspNet.dll</HintPath>
+    </Reference>
+    <Reference Include="Glimpse.Core, Version=1.8.6.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Glimpse.1.8.6\lib\net45\Glimpse.Core.dll</HintPath>
+    </Reference>
     <Reference Include="Hangfire.Core, Version=1.7.2.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Hangfire.Core.1.7.2\lib\net46\Hangfire.Core.dll</HintPath>
     </Reference>
@@ -154,6 +160,15 @@
     </Reference>
     <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
       <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Sitecore.Glimpse, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Sitecore.Glimpse.Mvc5.0.6.3\lib\net45\Sitecore.Glimpse.dll</HintPath>
+    </Reference>
+    <Reference Include="Sitecore.Glimpse.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Sitecore.Glimpse.Mvc5.0.6.3\lib\net45\Sitecore.Glimpse.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Sitecore.Glimpse.Infrastructure, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Sitecore.Glimpse.Mvc5.0.6.3\lib\net45\Sitecore.Glimpse.Infrastructure.dll</HintPath>
     </Reference>
     <Reference Include="System.Buffers, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Buffers.4.4.0\lib\netstandard2.0\System.Buffers.dll</HintPath>
@@ -318,16 +333,22 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ItemsController.cs" />
+    <Compile Include="GlimpseSecurityPolicy.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201905231434057_InitialCreate.cs" />
-    <Compile Include="Migrations\201905231434057_InitialCreate.Designer.cs">
-      <DependentUpon>201905231434057_InitialCreate.cs</DependentUpon>
+    <Compile Include="Migrations\201905231802348_Initial.cs" />
+    <Compile Include="Migrations\201905231802348_Initial.Designer.cs">
+      <DependentUpon>201905231802348_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905232041430_NextModyfication.cs" />
+    <Compile Include="Migrations\201905232041430_NextModyfication.Designer.cs">
+      <DependentUpon>201905232041430_NextModyfication.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ItemCategory.cs" />
-    <Compile Include="Models\ViewModels\AccountViewModels.cs" />
+    <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\DAL\ShopInitializer.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Role.cs" />
@@ -338,6 +359,7 @@
     <Compile Include="Models\UserData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\HomeViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
@@ -368,6 +390,9 @@
     <Content Include="Views\Home\opinions.cshtml" />
     <Content Include="Views\Home\comunity.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Items\List.cshtml" />
+    <Content Include="Views\Items\_itemsList.cshtml" />
+    <Content Include="Views\Items\_categoryMenu.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -390,8 +415,11 @@
     <TypeScriptCompile Include="Scripts\index.d.ts" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201905231434057_InitialCreate.resx">
-      <DependentUpon>201905231434057_InitialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201905231802348_Initial.resx">
+      <DependentUpon>201905231802348_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905232041430_NextModyfication.resx">
+      <DependentUpon>201905232041430_NextModyfication.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

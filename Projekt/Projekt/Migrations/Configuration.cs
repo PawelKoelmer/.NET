@@ -6,7 +6,7 @@ namespace Projekt.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    public sealed class Configuration : DbMigrationsConfiguration<ShopContext>
+    public sealed class Configuration : DbMigrationsConfiguration<Projekt.Models.DAL.ShopContext>
     {
         public Configuration()
         {

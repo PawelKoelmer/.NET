@@ -23,8 +23,9 @@
 <body>
     <div class="menu-bar">
         <div>
-        <a href="@Url.Action("Index","Home")">Strona główna</a>
-        <a href="">Koszyk</a>
+            @Html.ActionLink("Strona główna", "Index", "Home")
+            @Html.ActionLink("Lista produktów","List", "Items")
+           
         </div>
         @Html.Partial("_LoginPartial")
 

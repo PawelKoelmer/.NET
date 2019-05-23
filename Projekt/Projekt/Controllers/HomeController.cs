@@ -1,5 +1,6 @@
 ﻿using Projekt.Models;
 using Projekt.Models.DAL;
+using Projekt.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,8 +16,6 @@ namespace Projekt.Controllers
         // GET: Home
         public ActionResult Index()
         {
-            var ctx = new ShopContext();
-            ctx.Database.Initialize(true);
             return View();
         }
         public ActionResult defaultPages(string nazwa)

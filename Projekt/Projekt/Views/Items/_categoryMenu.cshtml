@@ -1,0 +1,13 @@
+﻿@model IEnumerable<Projekt.Models.ItemCategory>
+
+<nav class="category_menu">
+    <ul>
+        @foreach(var category in Model)
+        {
+            <li>
+                @Html.ActionLink(category.ItemCategoryName,"List","Items", new { categoryName = category.ItemCategoryName })
+            </li>
+        }
+    </ul>
+</nav>
+
