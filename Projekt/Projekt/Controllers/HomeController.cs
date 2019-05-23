@@ -19,9 +19,5 @@ namespace Projekt.Controllers
             ctx.Database.Initialize(true);
             return View();
         }
-        public ActionResult defaultPages(string nazwa)
-        {
-            return View(nazwa);
-        }
     }
 }

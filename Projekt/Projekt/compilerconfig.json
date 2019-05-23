@@ -2,9 +2,5 @@
   {
     "outputFile": "Content/themes/Layout.css",
     "inputFile": "Content/themes/Layout.scss"
-  },
-  {
-    "outputFile": "Content/themes/MainPage.css",
-    "inputFile": "Content/themes/MainPage.scss"
   }
 ]

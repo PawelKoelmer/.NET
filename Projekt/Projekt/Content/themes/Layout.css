@@ -1,14 +1,7 @@
 ﻿.menu-bar {
-  display: flex;
-  justify-content: space-between;
   background-color: gray;
   color: white;
   padding: 15px; }
-
-.menu-bar > div > a {
-  text-decoration: none;
-  color: white;
-  padding-right: 15px; }
 
 .main-site {
   background-color: darkgrey; }

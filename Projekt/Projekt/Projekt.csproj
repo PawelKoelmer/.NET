@@ -275,13 +275,6 @@
     <Content Include="Content\themes\Layout.min.css">
       <DependentUpon>Layout.css</DependentUpon>
     </Content>
-    <Content Include="Content\themes\MainPage.css">
-      <DependentUpon>MainPage.scss</DependentUpon>
-    </Content>
-    <Content Include="Content\themes\MainPage.min.css">
-      <DependentUpon>MainPage.css</DependentUpon>
-    </Content>
-    <Content Include="Content\themes\StylesPackage.css" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
@@ -305,7 +298,6 @@
     <Content Include="Scripts\esm\popper.js.map" />
     <Content Include="Scripts\esm\popper-utils.min.js.map" />
     <Content Include="Scripts\esm\popper-utils.js.map" />
-    <Content Include="Content\themes\MainPage.scss" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -367,13 +359,6 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
-    <Content Include="Views\Home\aboutUs.cshtml" />
-    <Content Include="Views\Home\regulations.cshtml" />
-    <Content Include="Views\Home\help.cshtml" />
-    <Content Include="Views\Home\contact.cshtml" />
-    <Content Include="Views\Home\opinions.cshtml" />
-    <Content Include="Views\Home\comunity.cshtml" />
-    <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
