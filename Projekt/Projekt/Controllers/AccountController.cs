@@ -4,7 +4,7 @@ using Microsoft.Owin.Security;
 using NLog;
 using Projekt.App_Start;
 using Projekt.Models;
-using Projekt.ViewModels;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;

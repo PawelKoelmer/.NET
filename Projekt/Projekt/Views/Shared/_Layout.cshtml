@@ -1,5 +1,5 @@
 ﻿@{ 
-    ViewData["Stylesheet"] = "/Content/themes/Layout.css";
+    ViewData["Stylesheet"] = "/Content/themes/StylesPackage.css";
 }
 <!DOCTYPE html>
 <html>
@@ -22,10 +22,12 @@
 </head>
 <body>
     <div class="menu-bar">
-        Nagłówek
-        <nav>
-            <span><a href=""</span>
-        </nav>
+        <div>
+        <a href="@Url.Action("Index","Home")">Strona główna</a>
+        <a href="">Koszyk</a>
+        </div>
+        @Html.Partial("_LoginPartial")
+
     </div>
     <div class="main-site">
         @RenderBody()
@@ -36,12 +38,12 @@
 
     <footer >
         <nav class="footer">
-                <a href="@Url.Action("StronyStatyczne","Home", new { nazwa = "Onas" })" style="">O nas</a>
-                <a href="@Url.Action("StronyStatyczne","Home", new { nazwa = "Spolecznosc" })" style="">Spolecznosc</a>
-                <a href="@Url.Action("StronyStatyczne","Home", new { nazwa = "Opinie" })" style="">Opinie</a>
-                <a href="@Url.Action("StronyStatyczne","Home", new { nazwa = "Pomoc" })" style="">Pomoc</a>
-                <a href="@Url.Action("StronyStatyczne","Home", new { nazwa = "Regulamin" })" style="">Regulamin</a>
-                <a href="@Url.Action("StronyStatyczne","Home", new { nazwa = "Kontakt" })" style="">Kontakt</a>
+                <a href="@Url.Action("defaultPages","Home", new { nazwa = "aboutUs" })" style="">O nas</a>
+                <a href="@Url.Action("defaultPages","Home", new { nazwa = "comunity" })" style="">Spolecznosc</a>
+                <a href="@Url.Action("defaultPages","Home", new { nazwa = "opinions" })" style="">Opinie</a>
+                <a href="@Url.Action("defaultPages","Home", new { nazwa = "help" })" style="">Pomoc</a>
+                <a href="@Url.Action("defaultPages","Home", new { nazwa = "regulations" })" style="">Regulamin</a>
+                <a href="@Url.Action("defaultPages","Home", new { nazwa = "contact" })" style="">Kontakt</a>
         </nav>
     </footer>
 </body>
