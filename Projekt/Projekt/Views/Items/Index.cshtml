@@ -1,0 +1,22 @@
+﻿@model Projekt.ViewModels.ShopItemsModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+       
+<nav class="categoriesHorizontal">
+    <ul>
+        @foreach (var category in Model.ItemsCategories)
+        {
+            <li>
+                <a href="@Url.Action("List", "Items", new { categoryName = category.ItemCategoryName.ToLower() })">
+                    @category.ItemCategoryName
+            </a>
+        </li>
+    }
+    </ul>
+    <div>
+
+    </div>
+</nav>
+

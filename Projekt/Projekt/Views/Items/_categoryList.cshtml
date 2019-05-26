@@ -1,0 +1,11 @@
+﻿@model Projekt.ViewModels.ShopItemsModel
+<ul>
+    @foreach (var categories in Model.ItemsCategories)
+    {
+        <li>
+            <a href="@Url.Action("List", "Items", new { categoryName = categories.ItemCategoryName.ToLower() })">
+                @categories.ItemCategoryName
+        </a>
+    </li>
+}
+</ul>

@@ -22,7 +22,7 @@ namespace Projekt.Models.DAL
         {
             return new ShopContext();
         }
-        public DbSet<ItemCategory> itemCategories { get; set; }
+        public DbSet<ItemCategory> ItemCategories { get; set; }
         public DbSet<Item> Items { get; set; }
         public DbSet<Order>  Orders { get; set; }
         public DbSet<OrderPostition> OrderPositions { get; set; }

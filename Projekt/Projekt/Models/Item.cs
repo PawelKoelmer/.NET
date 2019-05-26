@@ -9,7 +9,7 @@ namespace Projekt.Models
     {
 
        public int ItemId { get; set; }
-        public int CategoryId { get; set; }
+       public int ItemCategoryId { get; set; }
        public string productName { get; set; }
        public decimal productPrice { get; set; }
        public int inStock { get; set; }

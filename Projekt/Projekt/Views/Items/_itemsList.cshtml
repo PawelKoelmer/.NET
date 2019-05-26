@@ -1,10 +1,13 @@
-﻿@model IEnumerable<Projekt.Models.Item>
-  
-@{
-    ViewBag.Title = "_itemsList";
-}
+﻿    @model Projekt.ViewModels.ShopItemsModel
+    
+    <ul class="item_list">
+            @foreach(var item in Model.ItemList)
+            {
+                <li>
+                    @item.productName
+                </li>
+            }
+    
 
-<ul class="item_list">
-   
-</ul>
+    </ul>
 

@@ -27,16 +27,6 @@ namespace Projekt.Models.DAL
         }
         public static void SeedItemsData(ShopContext context)
         {
-            var items = new List<Item>
-            {
-                new Item() {ItemId=1, productName="Czekolada",inStock=50, avaiablity=true,productDescription="Najlepsza czekolada na rynku",productPrice=10,productScore=2, CategoryId=1 },
-                
-            };
-            items.ForEach(i => context.Items.AddOrUpdate(i));
-            context.SaveChanges();
-        }
-        public static void SeedItemsCategories(ShopContext context)
-        {
             var Categories = new List<ItemCategory>
             {
             new ItemCategory() {ItemCategoryId=1, ItemCategoryName=  "Słodycze", ItemCategoryDescription="Najlepsze słodycze na rynku" },
@@ -44,8 +34,23 @@ namespace Projekt.Models.DAL
             new ItemCategory() {ItemCategoryId=3, ItemCategoryName = "Herbaty świata", ItemCategoryDescription = "Najlepsze herbaty na rynku" },
             new ItemCategory() {ItemCategoryId=4, ItemCategoryName = "Przyprawy", ItemCategoryDescription = "Najlepsze przyprawy na rynku" }
             };
-            Categories.ForEach(c => context.itemCategories.AddOrUpdate(c));
+
+            Categories.ForEach(c => context.ItemCategories.AddOrUpdate(c));
+            context.SaveChanges();
+
+            var items = new List<Item>
+            {
+                new Item() {ItemId=1, productName="Czekolada",inStock=50, avaiablity=true,productDescription="Najlepsza czekolada na rynku",productPrice=10,productScore=2, ItemCategoryId=1, },
+                new Item() {ItemId=2, productName="Krówki",inStock=10, avaiablity=true,productDescription="Najlepsze krówki na rynku",productPrice=5,productScore=3, ItemCategoryId=1, },
+                new Item() {ItemId=3, productName="Landrynki",inStock=0, avaiablity=false,productDescription="Najlepsze landrynki na rynku",productPrice=7,productScore=1, ItemCategoryId=1, },
+                new Item() {ItemId=4, productName="Jacobs",inStock=10, avaiablity=false,productDescription="Kawa Jacobs",productPrice=37,productScore=1, ItemCategoryId=2, },
+                new Item() {ItemId=5, productName="Tchibo",inStock=12, avaiablity=false,productDescription="Kawa Tchibo",productPrice=25,productScore=1, ItemCategoryId=2, },
+                new Item() {ItemId=6, productName="Nescafe",inStock=50, avaiablity=false,productDescription="Kawa Nescafe",productPrice=29,productScore=1, ItemCategoryId=2, },
+
+            };
+            items.ForEach(i => context.Items.AddOrUpdate(i));
             context.SaveChanges();
         }
+     
     }
 }  

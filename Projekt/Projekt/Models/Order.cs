@@ -18,8 +18,9 @@ namespace Projekt.Models
         public string telNumber {get;set;}
         public DateTime addTime { get; set; }
         public shipmentStatus shipmentStatus { get; set; }
+        public decimal orderValue { get; set; }
 
-        List<OrderPostition> OrderPosition { get; set; }
+        public List<OrderPostition> OrderPosition { get; set; }
 
     }
 

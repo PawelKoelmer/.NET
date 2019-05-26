@@ -3,7 +3,7 @@ namespace Projekt.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class Initial : DbMigration
+    public partial class InitialCreate : DbMigration
     {
         public override void Up()
         {
@@ -22,18 +22,17 @@ namespace Projekt.Migrations
                 c => new
                     {
                         ItemId = c.Int(nullable: false, identity: true),
-                        CategoryId = c.Int(nullable: false),
+                        ItemCategoryId = c.Int(nullable: false),
                         productName = c.String(),
                         productPrice = c.Decimal(nullable: false, precision: 18, scale: 2),
                         inStock = c.Int(nullable: false),
                         productDescription = c.String(),
                         productScore = c.Decimal(nullable: false, precision: 18, scale: 2),
                         avaiablity = c.Boolean(nullable: false),
-                        ItemCategory_ItemCategoryId = c.Int(),
                     })
                 .PrimaryKey(t => t.ItemId)
-                .ForeignKey("dbo.ItemCategories", t => t.ItemCategory_ItemCategoryId)
-                .Index(t => t.ItemCategory_ItemCategoryId);
+                .ForeignKey("dbo.ItemCategories", t => t.ItemCategoryId, cascadeDelete: true)
+                .Index(t => t.ItemCategoryId);
             
             CreateTable(
                 "dbo.OrderPostitions",
@@ -84,10 +83,10 @@ namespace Projekt.Migrations
         {
             DropForeignKey("dbo.OrderPostitions", "OrderId", "dbo.Orders");
             DropForeignKey("dbo.OrderPostitions", "ItemId", "dbo.Items");
-            DropForeignKey("dbo.Items", "ItemCategory_ItemCategoryId", "dbo.ItemCategories");
+            DropForeignKey("dbo.Items", "ItemCategoryId", "dbo.ItemCategories");
             DropIndex("dbo.OrderPostitions", new[] { "ItemId" });
             DropIndex("dbo.OrderPostitions", new[] { "OrderId" });
-            DropIndex("dbo.Items", new[] { "ItemCategory_ItemCategoryId" });
+            DropIndex("dbo.Items", new[] { "ItemCategoryId" });
             DropTable("dbo.Roles");
             DropTable("dbo.Orders");
             DropTable("dbo.OrderPostitions");
