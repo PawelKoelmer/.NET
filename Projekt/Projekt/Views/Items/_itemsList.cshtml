@@ -3,9 +3,10 @@
     <ul class="item_list">
             @foreach(var item in Model.ItemList)
             {
-                <li>
-                    @item.productName
-                </li>
+        <li>
+            @item.productName 
+           <a href="@Url.Action("AddToCart","ShopCart",new { id = item.ItemId })"><button>Dodaj do koszyka</button></a>
+        </li>
             }
     
 

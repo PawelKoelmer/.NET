@@ -1,12 +1,14 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity.EntityFramework;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Web;
+using static Projekt.Models.IdentityModels;
 
 namespace Projekt.Models.DAL
 {
-    public class ShopContext : DbContext
+    public class ShopContext : IdentityDbContext<ApplicationUser>
     {
         public ShopContext() : base("Shop")
         {

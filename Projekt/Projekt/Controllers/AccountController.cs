@@ -4,7 +4,7 @@ using Microsoft.Owin.Security;
 using NLog;
 using Projekt.App_Start;
 using Projekt.Models;
-
+using Projekt.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -75,7 +75,7 @@ namespace Projekt.Controllers
 
             // This doesn't count login failures towards account lockout
             // To enable password failures to trigger account lockout, change to shouldLockout: true
-            var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
+            var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.remember, shouldLockout: false);
             switch (result)
             {
                 case SignInStatus.Success:
@@ -84,7 +84,7 @@ namespace Projekt.Controllers
                 case SignInStatus.LockedOut:
                     return View("Lockout");
                 case SignInStatus.RequiresVerification:
-                    return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = model.RememberMe });
+                    return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = model.remember });
                 case SignInStatus.Failure:
                 default:
                     ModelState.AddModelError("loginerror", "Nieudana próba logowania.");

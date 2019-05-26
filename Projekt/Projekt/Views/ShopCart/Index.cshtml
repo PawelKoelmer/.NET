@@ -1,0 +1,36 @@
+﻿@model Projekt.ViewModels.ShopCartViewModel
+@using Projekt.Infrastructure;
+@{  var count = 1;}
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+<div>
+    @Html.Action("categoryMenu","Items")
+    <section>
+        <div>
+            <h1>Koszyk:</h1>
+            <table>
+
+                @foreach (var item in Model.shopCartPosition)
+                {
+                    <tr>
+                        <td>
+                            @count.  Nazwa: @item.Item.productName Cena: @item.Item.productPrice Ilość: @item.stock
+                        </td>
+
+                    </tr>
+                    count += 1;
+                }
+
+                <tr id="koszyk-empty-message" @if (Model.shopCartPosition != null && Model.shopCartPosition.Count > 0) { <text> class="hidden" </text> }>
+                    <td>Twój koszyk jest pusty. Może chcesz coś dodać do koszyka?</td>
+                </tr>
+            </table>
+            <div class="price" >
+                Razem: @String.Format("{0:0.##}", Model.priceOfProducts) zł
+            </div>
+            </div>
+    </section>
+</div>
