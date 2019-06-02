@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using Projekt.Validation;
 
 namespace Projekt.Models
 {
@@ -10,12 +11,14 @@ namespace Projekt.Models
 
        public int ItemId { get; set; }
        public int ItemCategoryId { get; set; }
+       public DateTime addTime { get; set; }
+       [ProductNameValidation]
        public string productName { get; set; }
+       [ProductPriceValidation]
        public decimal productPrice { get; set; }
-       public int inStock { get; set; }
        public string productDescription { get; set; }
-       public decimal productScore { get; set; }
        public bool avaiablity { get; set; }
+
 
         public virtual ItemCategory ItemCategory { get; set; }
 

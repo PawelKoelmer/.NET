@@ -16,8 +16,9 @@ namespace Projekt.Migrations
 
         protected override void Seed(Projekt.Models.DAL.ShopContext context)
         {
-            ShopInitializer.SeedRolesData(context);
+            
             ShopInitializer.SeedItemsData(context);
+            ShopInitializer.SeedUsers(context);
         }
     }
 }

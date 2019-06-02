@@ -7,47 +7,21 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Projekt</title>
-
-    <environment include="Development">
-        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
-    </environment>
-    <environment exclude="Development">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
-              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute"
-              crossorigin="anonymous"
-              integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"/>
-    </environment>
     <link rel="stylesheet" href=@ViewData["Stylesheet"] />
 </head>
 <body>
-    <div class="menu-bar">
-        <div>
-            @Html.ActionLink("Strona główna", "Index", "Home")
-            @Html.ActionLink("Lista produktów","Index", "Items")
-            @Html.ActionLink("Koszyk","Index","ShopCart")
-           
+    <div class="menu">
+            @Html.ActionLink("Strona główna", "Index", "Home",null,new { @class = "MenuLink" })
+            @Html.ActionLink("Lista produktów","Index", "Items",null,new { @class = "MenuLink" })
+            @Html.ActionLink("Koszyk","Index","ShopCart",null,new { @class = "MenuLink" })
+        <div class="log">
+            @Html.Partial("_LoginPartial")
         </div>
-
-        @Html.Partial("_LoginPartial")
-
     </div>
     <div class="main-site">
         @RenderBody()
-
-
         @RenderSection("Scripts", required: false)
     </div>
-
-    <footer >
-        <nav class="footer">
-                <a href="@Url.Action("defaultPages","Home", new { nazwa = "aboutUs" })" style="">O nas</a>
-                <a href="@Url.Action("defaultPages","Home", new { nazwa = "comunity" })" style="">Spolecznosc</a>
-                <a href="@Url.Action("defaultPages","Home", new { nazwa = "opinions" })" style="">Opinie</a>
-                <a href="@Url.Action("defaultPages","Home", new { nazwa = "help" })" style="">Pomoc</a>
-                <a href="@Url.Action("defaultPages","Home", new { nazwa = "regulations" })" style="">Regulamin</a>
-                <a href="@Url.Action("defaultPages","Home", new { nazwa = "contact" })" style="">Kontakt</a>
-        </nav>
-    </footer>
+   @Html.Partial("_footerPartial")
 </body>
 </html>

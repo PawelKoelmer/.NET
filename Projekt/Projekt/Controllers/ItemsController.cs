@@ -1,4 +1,5 @@
-﻿using Projekt.Models.DAL;
+﻿using NLog;
+using Projekt.Models.DAL;
 using Projekt.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -12,13 +13,20 @@ namespace Projekt.Controllers
 {
     public class ItemsController : Controller
     {
-        private ShopContext db = new ShopContext();
-        ShopItemsModel vm = new ShopItemsModel();
+        private static Logger logger = LogManager.GetCurrentClassLogger();
+        private ShopContext db;
+        ShopItemsModel vm;
      
 
+        public ItemsController()
+        {
+            this.db = new ShopContext();
+            this.vm  = new ShopItemsModel();
+        }
         //GET: Items
         public ActionResult Index()
         {
+            logger.Info("Strona Sklepu");
             var categories = db.ItemCategories.ToList();
             var items = db.Items.ToList();
             vm.ItemList = items;
@@ -29,7 +37,7 @@ namespace Projekt.Controllers
 
         public ActionResult List(string categoryName, string searchQuery=null)
         {
-            Debug.Write(categoryName);
+            
             var category = db.ItemCategories.Include("Items").Where(c => c.ItemCategoryName.ToUpper() == categoryName.ToUpper()).Single();
 
             var items = category.Items.Where(a => (searchQuery == null ||
@@ -46,7 +54,7 @@ namespace Projekt.Controllers
             vm.ItemsCategories = categories;
             return PartialView("_categoryList", vm);
         }
-        public ActionResult KursyPodpowiedzi(string term)
+        public ActionResult ItemSuggestions(string term)
         {
             var kursy = db.Items.Where(a =>  a.productName.ToLower().Contains(term.ToLower()))
                         .Take(5).Select(a => new { label = a.productName });

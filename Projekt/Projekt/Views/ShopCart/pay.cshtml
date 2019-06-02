@@ -1,0 +1,71 @@
+﻿@model Projekt.Models.Order
+@{
+    ViewBag.Title = "pay";
+    Layout = "~/Views/Shared/_RightSectionLayout.cshtml";
+}
+
+@section  SectionTitle{
+    Uzupełnij dane zamówienia
+}
+
+@using (@Html.BeginForm("pay", "ShopCart"))
+{
+    <table id="checkout-address-table">
+        <tr>
+            <td>@Html.LabelFor(o => o.buyerName, "Imię:")</td>
+            <td>@Html.TextBoxFor(o => o.buyerName)</td>
+            <td>@Html.ValidationMessageFor(o => o.buyerName)</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(o => o.buyerLastName, "Nazwisko")</td>
+            <td>@Html.TextBoxFor(o => o.buyerLastName)</td>
+            <td>@Html.ValidationMessageFor(o => o.buyerLastName)</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(o => o.street, "Ulica")</td>
+            <td>@Html.TextBoxFor(o => o.street)</td>
+            <td>@Html.ValidationMessageFor(o => o.street)</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(o => o.homeFlatNumber, "Nr. domu")</td>
+            <td>@Html.TextBoxFor(o => o.homeFlatNumber)</td>
+            <td>@Html.ValidationMessageFor(o => o.homeFlatNumber)</td>
+        </tr>
+
+        <tr>
+            <td>@Html.LabelFor(o => o.city, "Miasto")</td>
+            <td>@Html.TextBoxFor(o => o.city)</td>
+            <td>@Html.ValidationMessageFor(o => o.city)</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(o => o.zipCode, "Kod pocztowy")</td>
+            <td>@Html.TextBoxFor(o => o.zipCode)</td>
+            <td>@Html.ValidationMessageFor(o => o.zipCode)</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(o => o.telNumber, "Numer telefonu")</td>
+            <td>@Html.TextBoxFor(o => o.telNumber)</td>
+            <td>@Html.ValidationMessageFor(o => o.telNumber)</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(o => o.buyerEmail, "Adres e-mail")</td>
+            <td>@Html.TextBoxFor(o => o.buyerEmail)</td>
+            <td>@Html.ValidationMessageFor(o => o.buyerEmail)</td>
+        </tr>
+        <tr>
+            <td><label for="Komentarz">Uwagi</label></td>
+            <td>
+                <textarea cols="40" rows="3" name="Komentarz">@Model.comment</textarea>
+            </td>
+        </tr>
+    </table>
+
+    @Html.ValidationSummary()
+
+    <hr style="margin-bottom: 50px;" />
+
+    <div class="SekcjaPrzyciski">
+        <a class="PrzyciskLink" href="">Wróć</a>
+        <input type="submit" class="PrzyciskLink" style="" value="Potwierdź" />
+    </div>
+}

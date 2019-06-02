@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewBag.Title</title>
+    <meta name="viewport" content="width=device-width" />
+    <link href="@Url.Content("~/Content/themes/StylesPackage.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/themes/base/jquery-ui.css")" rel="stylesheet" />
+</head>
+<body>
+        <div class="menu-bar">
+                <a class="manageLink" href="@Url.Action("Index", "Home")">
+                    Start
+                </a>
+                <a class="manageLink" href="@Url.Action("Index", "Manage")">
+                    Twoje dane
+                </a>
+                <a class="manageLink" href="@Url.Action("OrderList", "Manage")" style="width: 100px">
+                    Zamówienia
+                </a>
+                @if (@User.IsInRole("Admin"))
+                {
+                    <a class="manageLink" href="@Url.Action("AddItem", "Manage")">
+                        Dodaj
+                    </a>
+                    <a class="manageLink" href="@Url.Content("~/elmah")">
+                        Logi
+                    </a>
+                }   
+            <a id="koszykHeaderLink" href="@Url.Action("Index", "ShopCart")">
+                KOSZYK (<span id="koszyk-naglowek-ilosc-elementow">@Html.Action("GetQuantityOfItems", "ShopCart")</span>)
+                <span id="cart-header-logo"></span>
+            </a>
+            @Html.Partial("_LoginPartial")
+        </div>
+  
+
+    <div>
+        @RenderBody()
+    </div>
+
+    @Html.Partial("_footerPartial")
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

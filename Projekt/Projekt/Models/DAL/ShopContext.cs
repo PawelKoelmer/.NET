@@ -28,7 +28,7 @@ namespace Projekt.Models.DAL
         public DbSet<Item> Items { get; set; }
         public DbSet<Order>  Orders { get; set; }
         public DbSet<OrderPostition> OrderPositions { get; set; }
-        public DbSet<Role> Roles { get; set; }
+       
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

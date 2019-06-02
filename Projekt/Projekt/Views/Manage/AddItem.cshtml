@@ -1,0 +1,58 @@
+﻿@model Projekt.ViewModels.EditItemViewModel
+@{
+    ViewBag.Title = "DodajItem";
+    Layout = "~/Views/Shared/_ManageLayout.cshtml";
+}
+<hr />
+<h2 class="manageHeader">Edycja produktu</h2>
+<div>
+    @if (Model.Potwierdzenie.HasValue && Model.Potwierdzenie.Value)
+    {
+        <div style="text-align: center; margin: 50px;">
+            Pomyślnie wprowadzono zmiany!
+        </div>
+    }
+
+    @using (@Html.BeginForm("AddItem", "Manage", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="error-summary-centered">
+            @Html.ValidationSummary()
+        </div>
+        @Html.HiddenFor(o => o.Item.ItemId)
+        @Html.HiddenFor(o => o.Item.addTime) 
+      
+
+        <div style="text-align: center;">
+            <table id="albumedit-address-table">
+                <tr>
+                    <td>@Html.LabelFor(o => o.Item.productName, "Przedmiot:")</td>
+                    <td>@Html.TextBoxFor(o => o.Item.productName)</td>
+                    <
+                </tr>
+                <tr>
+                    <td>@Html.LabelFor(o => o.Item.productDescription, "Opis:")</td>
+                    <td>@Html.TextBoxFor(o => o.Item.productDescription)</td>
+           
+                </tr>
+                <tr>
+                    <td>@Html.LabelFor(o => o.categories, "Kategoria:")</td>
+                    <td>@Html.DropDownListFor(m => m.Item.ItemCategoryId, new SelectList(Model.categories, "ItemCategoryId", "ItemCategoryName", Model.categories.First().ItemCategoryId))</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>@Html.LabelFor(o => o.Item.productPrice, "Cena:")</td>
+                    <td>@Html.TextBoxFor(o => o.Item.productPrice)</td>
+                 
+                </tr>
+                <tr>
+                    <td style="text-align: right;">
+                        <input type="submit" value="Zapisz" class="submitLink" style="height: 40px; margin-right: 0px; margin-top: 30px; font-weight: bold;" />
+                    </td>
+                    <td></td>
+                </tr>
+            </table>
+        </div>
+    }
+</div>

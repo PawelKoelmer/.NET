@@ -1,14 +1,24 @@
 ﻿    @model Projekt.ViewModels.ShopItemsModel
     
     <ul class="item_list">
-            @foreach(var item in Model.ItemList)
-            {
-        <li>
-            @item.productName 
-           <a href="@Url.Action("AddToCart","ShopCart",new { id = item.ItemId })"><button>Dodaj do koszyka</button></a>
-        </li>
-            }
-    
+        @foreach (var item in Model.ItemList)
+        {
+            <li class="itemPosition">
+                <div class="row">
+                    @item.productName   @item.productPrice zł  - @item.productDescription
+                    
+
+                    
+                    <a href="@Url.Action("AddToCart","ShopCart",new { id = item.ItemId })"><button>Dodaj do koszyka</button></a>
+                     @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                     {
+                        <a href="@Url.Action("AddItem", "Manage", new { ItemId = item.ItemId })"><button>Edytuj</button></a>
+                     }
+                </div>
+            
+            </li>
+        }
+
 
     </ul>
 

@@ -93,6 +93,7 @@ namespace Projekt.Infrastructure
         {
             var shopCart = GetShopCart();
             newOrder.addTime = DateTime.Now;
+            newOrder.UserId = userId;
             db.Orders.Add(newOrder);
             if (newOrder.OrderPosition == null)
             {

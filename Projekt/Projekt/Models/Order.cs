@@ -8,6 +8,7 @@ namespace Projekt.Models
     public class Order
     {
         public int OrderId { get; set; }
+        public string UserId { get; set; }
         public string buyerName { get; set; }
         public string buyerLastName { get; set; }
         public string buyerEmail { get; set; }
@@ -17,14 +18,16 @@ namespace Projekt.Models
         public string zipCode { get; set; }
         public string telNumber {get;set;}
         public DateTime addTime { get; set; }
-        public shipmentStatus shipmentStatus { get; set; }
+        public ShipmentStatus shipmentStatus { get; set; }
         public decimal orderValue { get; set; }
+
+        public string comment { get; set; }
 
         public List<OrderPostition> OrderPosition { get; set; }
 
     }
 
-    public enum shipmentStatus
+    public enum ShipmentStatus
     {
         New,
         Realized
